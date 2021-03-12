@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+const init = require('../src/init')
+const push = require('../src/push')
+
+const argv = require('yargs/yargs')(process.argv.slice(2))
+    .usage('Usage: $0 <command> [options]')
+    .command(
+        'init',
+        'Intialize a widget template project',
+        yargs => {
+            yargs
+                .example('$0 init')
+        },
+        argv => init(argv))
+    .command(
+        'push [options]',
+        'Publish the widget template to your BigCommerce store',
+        yargs => {
+            yargs
+                .option('o', {
+                    describe: 'Overwrite the previous template version',
+                    alias: 'overwrite'
+                })
+                .example('$0 push')
+                .example('$0 push -o')
+        },
+        argv => push(argv))
+    .help('h')
+    .alias('h', 'help')
+    .demandCommand(1)
+    .argv

@@ -1,0 +1,32 @@
+{
+  "name": "@ppuente/big-widget",
+  "version": "1.0.0",
+  "description": "A tool for building BigCommerce Page Builder widget templates",
+  "main": "bin/big-widget",
+  "bin": {
+    "@ppuente/big-widget": "bin/big-widget",
+    "big-widget": "bin/big-widget"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "files": [
+    "bin/",
+    "src/"
+  ],
+  "keywords": [
+    "bigcommerce",
+    "page builder",
+    "widget",
+    "big-widget"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Patrick Puente",
+  "license": "MIT",
+  "dependencies": {
+    "inquirer": "^8.0.0",
+    "yargs": "^16.2.0"
+  }
+}
