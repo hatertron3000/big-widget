@@ -1,5 +1,5 @@
 {
-  "name": "@ppuente/big-widget",
+  "name": "big-widget",
   "version": "1.0.0",
   "description": "A tool for building BigCommerce Page Builder widget templates",
   "main": "bin/big-widget",
@@ -12,7 +12,8 @@
   },
   "files": [
     "bin/",
-    "src/"
+    "src/",
+    "templates/*"
   ],
   "keywords": [
     "bigcommerce",

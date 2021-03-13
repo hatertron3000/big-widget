@@ -12,7 +12,7 @@ A tool to help make [Page Builder widget templates](https://developer.bigcommerc
 For more information on creating BigCommerce API accounts, see the [BigCommerce documentation](https://support.bigcommerce.com/s/article/Store-API-Accounts).
 
 ## Installation
-`npm i -g @ppuente/big-widget`
+`npm i -g big-widget`
 
 ## Usage
 Create a project folder
