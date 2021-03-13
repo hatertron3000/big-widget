@@ -1,6 +1,6 @@
 {
   "name": "big-widget",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A tool for building BigCommerce Page Builder widget templates",
   "main": "bin/big-widget",
   "bin": {
