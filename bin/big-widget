@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const init = require('../src/init')
 const push = require('../src/push')
+const deleteProject = require('../src/delete-project')
 
 const argv = require('yargs/yargs')(process.argv.slice(2))
     .usage('Usage: $0 <command> [options]')
@@ -18,13 +19,22 @@ const argv = require('yargs/yargs')(process.argv.slice(2))
         yargs => {
             yargs
                 .option('a', {
-                    describe: 'Apply the template to widgets using the current version setting create_new_version: false',
+                    describe: 'Apply the template to widgets that use the current version by setting create_new_version: false; Will not update widgets using older versions of the same template.',
                     alias: 'apply'
                 })
                 .example('$0 push')
                 .example('$0 push -a')
         },
         argv => push(argv))
+    .command(
+        'delete-project',
+        `Deletes a $0 project and removes the widget template from the store.`,
+        yargs => {
+            yargs
+                .example('$0 delete-project')
+        },
+        argv => deleteProject(argv)
+    )
     .help('h')
     .alias('h', 'help')
     .demandCommand(1)
