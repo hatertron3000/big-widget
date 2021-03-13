@@ -9,24 +9,28 @@ A tool to help make [Page Builder widget templates](https://developer.bigcommerc
 |---------|------------|--------------------|
 | Content | modify     | `store_v2_content` |
 
-For more information on creating BigCommerce API accounts, see the [BigCommerce documentation](https://support.bigcommerce.com/s/article/Store-API-Accounts)
+For more information on creating BigCommerce API accounts, see the [BigCommerce documentation](https://support.bigcommerce.com/s/article/Store-API-Accounts).
 
 ## Installation
 `npm i -g @ppuente/big-widget`
 
 ## Usage
 Create a project folder
+
 `mkdir my-widget`
 
 Navigate into the project folder
+
 `cd my-widget`
 
 Initialize your project
+
 `big-widget init`
 
 Complete the prompts using your BigCommerce store API account.
 
 Push your widget to the store
+
 `big-widget push`
 
 ## Project Structure
