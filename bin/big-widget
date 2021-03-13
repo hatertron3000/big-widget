@@ -17,12 +17,12 @@ const argv = require('yargs/yargs')(process.argv.slice(2))
         'Publish the widget template to your BigCommerce store',
         yargs => {
             yargs
-                .option('o', {
-                    describe: 'Overwrite the previous template version',
-                    alias: 'overwrite'
+                .option('a', {
+                    describe: 'Apply the template to widgets using the current version setting create_new_version: false',
+                    alias: 'apply'
                 })
                 .example('$0 push')
-                .example('$0 push -o')
+                .example('$0 push -a')
         },
         argv => push(argv))
     .help('h')

@@ -1,18 +1,98 @@
 const fs = require('fs')
+const inquirer = require('inquirer')
+const ncp = require('ncp')
+const { promisify } = require('util')
+const path = require('path')
+const execa = require('execa')
+const copy = promisify(ncp)
 
-module.exports = function init(argv) {
-    console.log(argv)
-    console.log('Initializing the project...')
-    const promises = Promise.all([
-        /* TODO: Copy templates */
-        // fs.promises.writeFile('template.html'),
-        // fs.promises.writeFile('storefront_api_query.graphql'),
-        // fs.promises.writeFile('config.json'),
-        // fs.promises.writeFile('secrets.json')
-        fs.promises.writeFile(`./.${argv.$0}`)
-    ])
+const templatesDirectory = path.resolve(__dirname, '../templates/'),
+    initGit = async () => {
+        const result = await execa('git', ['init']);
+        if (result.failed) {
+            return Promise.reject(new Error('Failed to initialize git'));
+        }
+        return;
+    }
 
-    promises
-        .then(console.log('Finished!'))
-        .catch(err => console.error('Error during initialization', err))
+
+module.exports = argv => {
+    const configFilename = `config.${argv.$0}.json`
+    const secretsFilename = `secrets.${argv.$0}.json`
+
+    fs.access(configFilename, fs.constants.F_OK, err => {
+        if (!err) {
+            console.log('A big-widget project already exists in this directory.')
+            return
+        }
+
+        const templates = fs.readdirSync(templatesDirectory, { withFileTypes: true })
+            .filter(dirent => dirent.isDirectory())
+            .map(dirent => dirent.name),
+            questions = [
+                {
+                    name: "name",
+                    type: "input",
+                    message: "Enter a widget template name (alphanumeric, space, or - characters only)",
+                    default: "My Template",
+                    validate: input => input.match(/[\w- ]{1,100}/)
+                        ? true
+                        : "Invalid name.",
+                    filter: input => input.trim()
+                },
+                {
+                    name: "template",
+                    type: "list",
+                    message: "Choose a template",
+                    choices: templates
+                },
+                {
+                    name: "token",
+                    type: "input",
+                    message: "Enter your an API access token",
+                    validate: input => input.match(/[\w]{1,100}/)
+                        ? true
+                        : "Invalid access token",
+                    filter: input => input.trim()
+                },
+                {
+                    name: "apiPath",
+                    type: "input",
+                    message: "Enter your store's API path",
+                    validate: input => input.match(/https:\/\/api.bigcommerce\.com\/stores\/[\w]{1,100}\/v3\//)
+                        ? true
+                        : "Invalid API path. Example: https://api.bigcommerce.com/stores/abcd1234/v3/",
+                    filter: input => input.trim()
+                }
+            ]
+
+        inquirer
+            .prompt(questions)
+            .then(answers => {
+                console.log("Initializing the project...")
+
+                const secrets = {
+                    accessToken: answers.token
+                },
+                    config = {
+                        name: answers.name,
+                        apiPath: answers.apiPath
+                    },
+
+                    templateDirectory = `${templatesDirectory}/${answers.template}/`
+
+
+                const promises = Promise.all([
+                    fs.promises.writeFile(configFilename, JSON.stringify(config, null, 2)),
+                    fs.promises.writeFile(secretsFilename, JSON.stringify(secrets, null, 2)),
+                    copy(templateDirectory, process.cwd(), { clobber: false }),
+                    initGit()
+                ])
+
+                promises
+                    .then(console.log('Finished!'))
+                    .catch(err => console.error('Error during initializationn\n', err))
+            })
+    })
 }
+

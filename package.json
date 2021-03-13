@@ -26,7 +26,11 @@
   "author": "Patrick Puente",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.21.1",
+    "chalk": "^4.1.0",
+    "execa": "^5.0.0",
     "inquirer": "^8.0.0",
+    "ncp": "^2.0.0",
     "yargs": "^16.2.0"
   }
 }

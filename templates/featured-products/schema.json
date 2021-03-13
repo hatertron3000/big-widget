@@ -1,0 +1,19 @@
+[
+    {
+        "type": "tab",
+        "label": "Content",
+        "sections": [
+            {
+                "label": "Text",
+                "settings": [
+                    {
+                        "type": "input",
+                        "label": "Heading text",
+                        "id": "heading",
+                        "default": "Featured Products"
+                    }
+                ]
+            }
+        ]
+    }
+]
