@@ -1,0 +1,3 @@
+# This file exists so that npm will not
+# rename .gitignore to .npmignore in template
+# directories
