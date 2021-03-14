@@ -46,8 +46,8 @@ module.exports = argv => {
                     type: "rawlist",
                     message: "Choose a template",
                     choices: templates,
-                    default: templates.find(template => template === 'tab')
-                        ? 'tab'
+                    default: templates.find(template => template === 'tabs')
+                        ? 'tabs'
                         : null
                 },
                 {

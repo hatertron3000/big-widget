@@ -1,0 +1,58 @@
+[
+    {
+        "type": "tab",
+        "label": "Content",
+        "sections": [
+            {
+                "label": "The first section",
+                "settings": [
+                    {
+                        "type": "input",
+                        "label": "My input",
+                        "id": "myInput",
+                        "default": "Lorem ipsum..."
+                    },
+                    {
+                        "type": "text",
+                        "label": "My text",
+                        "id": "myText",
+                        "default": "Lorem ipsum dolor sit amet..."
+                    },
+                    {
+                        "type": "productId",
+                        "label": "My productId",
+                        "id": "myProductId",
+                        "typeMeta": {
+                            "placeholder": "Search by name or SKU"
+                        }
+                    },
+                    {
+                        "type": "productImage",
+                        "label": "My Product Image",
+                        "id": "myProductImage",
+                        "typeMeta": {
+                            "reference": "myProductId"
+                        }
+                    }
+                ]
+            },
+            {
+                "label": "The second section",
+                "settings": [
+                    {
+                        "type": "input",
+                        "label": "My input",
+                        "id": "mySecondInput",
+                        "default": "Lorem ipsum..."
+                    },
+                    {
+                        "type": "text",
+                        "label": "My text",
+                        "id": "mySecondText",
+                        "default": "All settings should have unique ids, even across multiple sections"
+                    }
+                ]
+            }
+        ]
+    }
+]
