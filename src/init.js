@@ -5,6 +5,7 @@ const { promisify } = require('util')
 const path = require('path')
 const execa = require('execa')
 const copy = promisify(ncp)
+const chalk = require('chalk')
 
 const templatesDirectory = path.resolve(__dirname, '../templates/'),
     initGit = async () => {
@@ -90,8 +91,12 @@ module.exports = argv => {
                 ])
 
                 promises
-                    .then(console.log('Finished!'))
-                    .catch(err => console.error('Error during initializationn\n', err))
+                    .then(() => {
+                        console.log(chalk.cyan('Finished'))
+                        console.log(`========`)
+                        console.log(JSON.stringify(config, null, 2))
+                    })
+                    .catch(err => console.error(`${chalk.red('Error')} during initializationn\n`, err))
             })
     })
 }

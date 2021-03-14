@@ -2,6 +2,7 @@ const axios = require('axios').default
 const chalk = require('chalk')
 const fs = require('fs')
 const path = require('path')
+const getPaths = require('../util/get-paths')
 
 
 
@@ -32,6 +33,8 @@ const postTemplate = async ({
         config.current_version_uuid = current_version_uuid
         fs.writeFileSync(configFilePath, JSON.stringify(config, null, 2))
         console.log(chalk.cyan('Finished'))
+        console.log(`========`)
+        console.log(JSON.stringify(config, null, 2))
     }).catch(err => {
         console.log(`${chalk.red('Error')} creating widget template.`)
         console.error(err)
@@ -66,6 +69,8 @@ const putTemplate = async ({
         config.current_version_uuid = current_version_uuid
         fs.writeFileSync(configFilePath, JSON.stringify(config, null, 2))
         console.log(chalk.cyan('Finished'))
+        console.log(`========`)
+        console.log(JSON.stringify(config, null, 2))
     }).catch(err => {
         console.log(`${chalk.red('Error')} updating widget template.`)
         console.error(err)
@@ -74,12 +79,14 @@ const putTemplate = async ({
 
 
 module.exports = argv => {
-    const cwd = process.cwd()
-    const configFilePath = path.resolve(cwd, `config.${argv.$0}.json`)
-    const secretsFilePath = path.resolve(cwd, `secrets.${argv.$0}.json`)
-    const schemaFilePath = path.resolve(cwd, 'schema.json')
-    const storefrontApiQueryFilePath = path.resolve(cwd, 'storefront-api-query.graphql')
-    const templateFilePath = path.resolve(cwd, 'template.html')
+    const {
+        cwd,
+        configFilePath,
+        secretsFilePath,
+        schemaFilePath,
+        storefrontApiQueryFilePath,
+        templateFilePath,
+    } = getPaths(argv)
 
     try {
         const config = require(configFilePath)
@@ -101,6 +108,6 @@ module.exports = argv => {
         }
 
     } catch (err) {
-        console.log(`No big-widget project found. Run ${chalk.cyan('big-widget init')} to create a project`)
+        console.log(`No ${argv.$0} project found. Run ${chalk.cyan('big-widget init')} to create a project`)
     }
 }
