@@ -55,7 +55,7 @@ const deleteProject = async argv => {
                 })
                 .catch(err => console.error(`${chalk.red('Error')} deleting project\n${err}`))
         } else {
-            console.log('No remove project found, removing local files...')
+            console.log('No remote widget template found found, removing local files...')
             deleteFiles(paths)
                 .then(() => {
                     console.log(`Deleted ${config.name}`)
