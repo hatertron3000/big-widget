@@ -1,0 +1,244 @@
+[
+    {
+        "type": "tab",
+        "label": "Content",
+        "sections": [
+            {
+                "label": "The first section",
+                "settings": [
+                    {
+                        "type": "productId",
+                        "label": "My productId",
+                        "id": "myProductId",
+                        "typeMeta": {
+                            "placeholder": "Search by name or SKU"
+                        }
+                    },
+                    {
+                        "type": "productImage",
+                        "label": "My Product Image",
+                        "id": "myProductImage",
+                        "typeMeta": {
+                            "reference": "myProductId"
+                        }
+                    },
+                    {
+                        "type": "alignment",
+                        "label": "My Alignment",
+                        "id": "myAlignment",
+                        "default": {
+                            "horizontal": "left",
+                            "vertical": "middle"
+                        },
+                        "typeMeta": {
+                            "display": "both"
+                        }
+                    },
+                    {
+                        "type": "boolean",
+                        "label": "My Checkbox",
+                        "id": "myCheckbox",
+                        "default": true
+                    },
+                    {
+                        "type": "boxModel",
+                        "label": "My box model",
+                        "id": "myBoxModel",
+                        "default": {
+                            "top": {
+                                "value": 0,
+                                "type": "Sneetches"
+                            },
+                            "right": {
+                                "value": 0,
+                                "type": "Sneetches"
+                            },
+                            "bottom": {
+                                "value": 0,
+                                "type": "Sneetches"
+                            },
+                            "left": {
+                                "value": 0,
+                                "type": "Sneetches"
+                            }
+                        }
+                    },
+                    {
+                        "type": "code",
+                        "label": "My Code",
+                        "id": "myCode",
+                        "default": "<div>Hello world</div>",
+                        "typeMeta": {
+                            "language": "html"
+                        }
+                    },
+                    {
+                        "type": "color",
+                        "label": "My Color",
+                        "id": "myColor",
+                        "default": "#4e75f8"
+                    },
+                    {
+                        "type": "element",
+                        "label": "My Element",
+                        "id": "myElement",
+                        "typeMeta": {
+                            "controls": {
+                                "visibility": {
+                                    "default": "show"
+                                },
+                                "advanced": {
+                                    "label": "My element settings",
+                                    "settings": [
+                                        {
+                                            "type": "input",
+                                            "label": "My element input",
+                                            "id": "myElementInput",
+                                            "default": "Lorem ipsum..."
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "imageManager",
+                        "id": "My image manager",
+                        "default": {
+                            "src": "https://placehold.it/350x350.png",
+                            "type": "URL"
+                        }
+                    },
+                    {
+                        "type": "input",
+                        "label": "My input",
+                        "id": "myInput",
+                        "default": "Lorem ipsum..."
+                    },
+                    {
+                        "type": "number",
+                        "label": "My number",
+                        "id": "myNumber",
+                        "default": {
+                            "value": "100",
+                            "type": "Sneetches"
+                        },
+                        "typeMeta": {
+                            "parseType": "float"
+                        }
+                    },
+                    {
+                        "type": "range",
+                        "label": "My range",
+                        "id": "myRange",
+                        "default": "100",
+                        "typeMeta": {
+                            "rangeValues": {
+                                "min": 0,
+                                "max": 100,
+                                "step": 5,
+                                "unit": "Sneetches"
+                            }
+                        }
+                    },
+                    {
+                        "type": "regexInput",
+                        "label": "My regexInput",
+                        "id": "myRegexInput",
+                        "default": "Hello World!",
+                        "typeMeta": {
+                            "placeholder": "This is a placeholder",
+                            "regexPatterns": [
+                                {
+                                    "pattern": "([a-zA-Z]{0,20})",
+                                    "matchIndex": 1,
+                                    "configKey": "myRegexInputConfigKey"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "select",
+                        "label": "My select",
+                        "id": "mySelect",
+                        "default": "value 1",
+                        "typeMeta": {
+                            "selectOptions": [
+                                {
+                                    "label": "Select Option 1",
+                                    "value": "value 1"
+                                },
+                                {
+                                    "label": "Select Option 2",
+                                    "value": "value 2"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "text",
+                        "label": "My text",
+                        "id": "myText",
+                        "default": "Lorem ipsum dolor sit amet..."
+                    },
+                    {
+                        "type": "typography",
+                        "label": "My typography",
+                        "id": "myTypography",
+                        "default": "default",
+                        "typeMeta": {
+                            "conditionalSettings": [
+                                {
+                                    "condition": "custom",
+                                    "settings": [
+                                        {
+                                            "type": "select",
+                                            "label": "My typography select",
+                                            "id": "myTypographSelect",
+                                            "default": "value 1",
+                                            "typeMeta": {
+                                                "selectOptions": [
+                                                    {
+                                                        "label": "Typography Select Option 1",
+                                                        "value": "value 1"
+                                                    },
+                                                    {
+                                                        "label": "Typography Select Option 2",
+                                                        "value": "value 2"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "visibility",
+                        "label": "My Visibility",
+                        "id": "myVisibility",
+                        "default": "hide"
+                    }
+                ]
+            },
+            {
+                "label": "The second section",
+                "settings": [
+                    {
+                        "type": "input",
+                        "label": "My input",
+                        "id": "mySecondInput",
+                        "default": "Lorem ipsum..."
+                    },
+                    {
+                        "type": "text",
+                        "label": "My text",
+                        "id": "mySecondText",
+                        "default": "All settings should have unique ids, even across multiple sections"
+                    }
+                ]
+            }
+        ]
+    }
+]

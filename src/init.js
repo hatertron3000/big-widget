@@ -43,9 +43,12 @@ module.exports = argv => {
                 },
                 {
                     name: "template",
-                    type: "list",
+                    type: "rawlist",
                     message: "Choose a template",
-                    choices: templates
+                    choices: templates,
+                    default: templates.find(template => template === 'tab')
+                        ? 'tab'
+                        : null
                 },
                 {
                     name: "token",
