@@ -86,6 +86,7 @@ module.exports = argv => {
                 const promises = Promise.all([
                     fs.promises.writeFile(configFilename, JSON.stringify(config, null, 2)),
                     fs.promises.writeFile(secretsFilename, JSON.stringify(secrets, null, 2)),
+                    fs.promises.writeFile('.gitignore', secretsFilename),
                     copy(templateDirectory, process.cwd(), { clobber: false }),
                     initGit()
                 ])
