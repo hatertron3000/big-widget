@@ -4,7 +4,7 @@
         "label": "Content",
         "sections": [
             {
-                "label": "Text",
+                "label": "Content",
                 "settings": [
                     {
                         "type": "input",

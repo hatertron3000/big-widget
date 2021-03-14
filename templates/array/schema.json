@@ -1,0 +1,21 @@
+[
+    {
+        "type": "array",
+        "label": "Content",
+        "id": "content",
+        "defaultCount": 3,
+        "entryLabel": "item",
+        "thumbnail": "https://placehold.it/90x90",
+        "schema": [
+            {
+                "type": "tab",
+                "label": "Item content",
+                "sections": [
+                    {
+                        "settings": []
+                    }
+                ]
+            }
+        ]
+    }
+]
