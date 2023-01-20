@@ -113,3 +113,4 @@ module.exports = argv => {
         console.log(`No ${argv.$0} project found. Run ${chalk.cyan('big-widget init')} to create a project`)
     }
 }
+
