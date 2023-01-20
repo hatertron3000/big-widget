@@ -71,7 +71,7 @@ module.exports = argv => {
                 {
                     name: "channel_id",
                     type: "input",
-                    message: "Enter a channel_id (default is 1)",
+                    message: "Enter a channel_id (numeric only - default is 1)",
                     default: "1",
                     validate: input => input.match(/[\w- ]{1,100}/)
                         ? true
