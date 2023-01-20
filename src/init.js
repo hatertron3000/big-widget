@@ -67,6 +67,16 @@ module.exports = argv => {
                         ? true
                         : "Invalid API path. Example: https://api.bigcommerce.com/stores/abcd1234/v3/",
                     filter: input => input.trim()
+                },
+                {
+                    name: "channel_id",
+                    type: "input",
+                    message: "Enter a channel_id (default is 1)",
+                    default: "1",
+                    validate: input => input.match(/[\w- ]{1,100}/)
+                        ? true
+                        : "Invalid channel_id.",
+                    filter: input => input.trim()
                 }
             ]
 
