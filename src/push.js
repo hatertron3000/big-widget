@@ -21,6 +21,7 @@ const postTemplate = async ({
         schema,
         storefront_api_query,
         template,
+        channel_id: config.channel_id,
     }
     axios.post(`${config.apiPath}content/widget-templates`, data, {
         headers: {
@@ -56,7 +57,8 @@ const putTemplate = async ({
         schema,
         storefront_api_query,
         template,
-        create_new_version: !argv.apply
+        create_new_version: !argv.apply,
+        channel_id: config.channel_id,
     }
     axios.put(`${config.apiPath}content/widget-templates/${config.uuid}`, data, {
         headers: {
@@ -108,6 +110,7 @@ module.exports = argv => {
         }
 
     } catch (err) {
-        console.log(`No ${argv.$0} project found. Run ${chalk.cyan('big-widget init')} to create a project`)
+        console.log(`No ${argv.$0} project found [err:${err}]. Run ${chalk.cyan('big-widget init')} to create a project`)
     }
 }
+
